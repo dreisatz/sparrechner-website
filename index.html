@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sparrechner</title>
+</head>
+<body>
+    <h2>Sparrechner</h2>
+    <form id="sparrechnerForm">
+        <label for="anfangsbetrag">Anfangsbetrag (€):</label><br>
+        <input type="number" id="anfangsbetrag" name="anfangsbetrag"><br>
+
+        <label for="monatlicheEinlage">Monatliche Einlage (€):</label><br>
+        <input type="number" id="monatlicheEinlage" name="monatlicheEinlage"><br>
+
+        <label for="jahre">Laufzeit (Jahre):</label><br>
+        <input type="number" id="jahre" name="jahre"><br>
+
+        <label for="zinsrate">Jährliche Zinsrate (%):</label><br>
+        <input type="number" id="zinsrate" name="zinsrate" step="0.01"><br>
+
+        <input type="button" value="Berechnen" onclick="berechneSparen()">
+    </form>
+
+    <p id="ergebnis"></p>
+
+    <script src="sparrechner.js"></script>
+</body>
+</html>
