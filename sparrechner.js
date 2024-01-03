@@ -1,16 +1,14 @@
 function berechneSparen() {
-    var anfangsbetrag = document.getElementById('anfangsbetrag').value;
-    var monatlicheEinlage = document.getElementById('monatlicheEinlage').value;
-    var jahre = document.getElementById('jahre').value;
-    var zinsrate = document.getElementById('zinsrate').value;
+    var anfangsbetrag = parseFloat(document.getElementById('anfangsbetrag').value);
+    var monatlicheEinlage = parseFloat(document.getElementById('monatlicheEinlage').value);
+    var jahre = parseFloat(document.getElementById('jahre').value);
+    var zinsrate = parseFloat(document.getElementById('zinsrate').value);
 
-    var endbetrag = anfangsbetrag;
     var monatlicheZinsrate = (zinsrate / 100) / 12;
+    var gesamtMonate = jahre * 12;
 
-    for (var monat = 0; monat < jahre * 12; monat++) {
-        endbetrag += monatlicheEinlage;
-        endbetrag *= (1 + monatlicheZinsrate);
-    }
+    var endbetrag = anfangsbetrag * Math.pow((1 + monatlicheZinsrate), gesamtMonate) + 
+                    monatlicheEinlage * (Math.pow((1 + monatlicheZinsrate), gesamtMonate) - 1) / monatlicheZinsrate;
 
-    document.getElementById('ergebnis').innerText = 'Endbetrag nach ' + jahre + ' Jahren: €' + endbetrag.toFixed(2);
+    document.getElementById('ergebnis').innerText = 'Endbetrag nach ' + jahre + ' Jahren: CHF ' + endbetrag.toFixed(2);
 }
